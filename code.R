@@ -29,7 +29,7 @@ Hitters=na.omit(Hitters)
 sum(is.na(Hitters))
 
 library(leaps)
-# contains all the best subset of size from 1 to 8
+# contains all the best subset of size from 1 to 8 (default is 8)
 regfit.full = regsubsets(Salary ~ ., data = Hitters)
 summary(regfit.full)
 
@@ -50,7 +50,7 @@ rsq %>%
   add_axis("y", title = "R2") %>% 
   add_axis("x", title = "Number of variables")
 
-# Inference from Plot: After choosing attributes, the R squared is almost a flat line. So, 10 attributes can be chosen to give the similar result as given by taking all 19 attributes.
+# Inference from Plot: After choosing 10 attributes, the R squared is almost a flat line. So, 10 attributes can be chosen to give the similar result as given by taking all 19 attributes.
 
 # Forward and Backward Subset Selection
 regfit.fwd = regsubsets(Salary ~. , data=Hitters,nvmax=19, method ="forward")
